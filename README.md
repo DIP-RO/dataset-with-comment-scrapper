@@ -16,6 +16,48 @@ id,text,target,stance
 
 Allowed stance labels are `FAVOR`, `AGAINST`, and `NEUTRAL`.
 
+## Current Dataset Snapshot
+
+Snapshot date: `2026-07-03`
+
+Current checkpoint data contains `12,484` valid annotated comments across the five target cricketers. The working target is `3,000` valid rows per player, with balanced stance coverage where possible.
+
+| Target player | CSV file | Current rows | FAVOR | AGAINST | NEUTRAL | Progress to 3,000 |
+|---|---:|---:|---:|---:|---:|---:|
+| Shakib Al Hasan | `data/checkpoints/shakib.csv` | 3,000 | 1,000 | 1,000 | 1,000 | 100.0% |
+| Mushfiqur Rahim | `data/checkpoints/mushfiq.csv` | 1,957 | 822 | 293 | 842 | 65.2% |
+| Mahmudullah Riyad | `data/checkpoints/riyad.csv` | 2,478 | 1,000 | 478 | 1,000 | 82.6% |
+| Tamim Iqbal | `data/checkpoints/tamim.csv` | 2,604 | 1,000 | 604 | 1,000 | 86.8% |
+| Mashrafe Mortaza | `data/checkpoints/murtaza.csv` | 2,445 | 1,000 | 445 | 1,000 | 81.5% |
+| **Total** | `data/checkpoints/*.csv` | **12,484** | **4,822** | **2,820** | **4,842** | **83.2%** |
+
+### Stance Distribution
+
+| Stance | Count | Share |
+|---|---:|---:|
+| FAVOR | 4,822 | 38.6% |
+| AGAINST | 2,820 | 22.6% |
+| NEUTRAL | 4,842 | 38.8% |
+
+```mermaid
+pie title Current stance distribution
+    "FAVOR" : 4822
+    "AGAINST" : 2820
+    "NEUTRAL" : 4842
+```
+
+### Player Coverage
+
+```mermaid
+xychart-beta
+    title "Current valid comments per player"
+    x-axis ["shakib", "mushfiq", "riyad", "tamim", "murtaza"]
+    y-axis "Rows" 0 --> 3000
+    bar [3000, 1957, 2478, 2604, 2445]
+```
+
+Current status: Shakib is complete and balanced at `1,000` comments per stance. The remaining players still need more `AGAINST` examples to reach a fully balanced `3,000` row dataset. FAVOR and NEUTRAL quotas are already full for Riyad, Tamim, and Murtaza, so the next scraping rounds should prioritize controversy-heavy videos and comments that produce valid AGAINST examples for the incomplete players.
+
 ## Pipeline Diagram
 
 ```mermaid
