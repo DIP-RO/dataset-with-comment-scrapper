@@ -1,0 +1,12 @@
+.env
+.venv/
+__pycache__/
+*.py
+*.pyc
+.DS_Store
+
+.qodo/
+smoke_data/
+smoke_gemini_data/
+smoke_gemini_data_2/
+smoke_heuristic_data/
